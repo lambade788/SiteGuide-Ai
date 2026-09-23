@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+
+        <!-- JDBC Database Connection Settings -->
+        <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/siteguard_ai?createDatabaseIfNotExist=true&amp;useSSL=false&amp;allowPublicKeyRetrieval=true&amp;serverTimezone=UTC</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">root</property>
+
+        <!-- Hibernate SQL Dialect -->
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+
+        <!-- Echo and Format SQL Commands -->
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
+        <property name="hibernate.highlight_sql">true</property>
+
+        <!-- Schema Generation Strategy -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+
+        <!-- Connection Pool Settings (Hikari / Standard Built-in Pool) -->
+        <property name="hibernate.connection.pool_size">10</property>
+        <property name="hibernate.current_session_context_class">thread</property>
+
+        <!-- Annotated Entity Classes -->
+        <mapping class="com.siteguard.entity.User"/>
+        <mapping class="com.siteguard.entity.Project"/>
+        <mapping class="com.siteguard.entity.Site"/>
+        <mapping class="com.siteguard.entity.Camera"/>
+        <mapping class="com.siteguard.entity.Worker"/>
+        <mapping class="com.siteguard.entity.SafetyRule"/>
+        <mapping class="com.siteguard.entity.Detection"/>
+        <mapping class="com.siteguard.entity.Violation"/>
+        <mapping class="com.siteguard.entity.Alert"/>
+        <mapping class="com.siteguard.entity.AuditLog"/>
+
+    </session-factory>
+</hibernate-configuration>
